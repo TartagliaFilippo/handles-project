@@ -3,6 +3,36 @@ export default {
   data() {
     return {
       title: "Products",
+      pdfList: [
+        {
+          name: "Antique Iron",
+          url: "../../public/pdf/Antique_iron.pdf",
+        },
+        {
+          name: "Arredo Giardino",
+          url: "../../public/pdf/",
+        },
+        {
+          name: "Arte e Design",
+          url: "../../public/pdf/",
+        },
+        {
+          name: "Catalogo Generale",
+          url: "../../public/pdf/",
+        },
+        {
+          name: "Cucine e Dintorni",
+          url: "../../public/pdf/",
+        },
+        {
+          name: "Design e Colore",
+          url: "../../public/pdf/",
+        },
+        {
+          name: "l'Officina dello Stile",
+          url: "../../public/pdf/",
+        },
+      ],
     };
   },
 };
@@ -17,22 +47,13 @@ export default {
           <font-awesome-icon :icon="['fas', 'angle-left']" />
         </div>
         <div class="left-preview">
-          <img
-            src="../../public/cataloghi_maniglie/img_cataloghi/Antique_iron.jpg"
-            alt=""
-          />
+          <img src="../../public/image-cataloghi/antique-iron.jpg" alt="" />
         </div>
         <div class="image-container">
-          <img
-            src="../../public/cataloghi_maniglie/img_cataloghi/Antique_iron.jpg"
-            alt=""
-          />
+          <img src="../../public/image-cataloghi/antique-iron.jpg" alt="" />
         </div>
         <div class="right-preview">
-          <img
-            src="../../public/cataloghi_maniglie/img_cataloghi/Antique_iron.jpg"
-            alt=""
-          />
+          <img src="../../public/image-cataloghi/antique-iron.jpg" alt="" />
         </div>
         <div class="right-button">
           <font-awesome-icon :icon="['fas', 'angle-right']" />
@@ -69,6 +90,12 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
+
+      .left-button,
+      .right-button {
+        display: flex;
+        align-items: center;
+      }
 
       .image-container {
         img {
