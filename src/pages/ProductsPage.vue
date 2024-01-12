@@ -37,24 +37,14 @@ export default {
     };
   },
 
-  computed: {
-    prevIndex() {
-      // Calcola l'indice dell'immagine precedente
-      return this.activeSlide === 0
-        ? this.imageList.length - 1
-        : this.activeSlide - 1;
-    },
-    nextIndex() {
-      // Calcola l'indice dell'immagine successiva
-      return this.activeSlide === this.imageList.length - 1
-        ? 0
-        : this.activeSlide + 1;
-    },
+  created() {
+    this.startAutoSlide();
   },
 
   methods: {
     getSlide(index) {
       this.activeSlide = index;
+      this.stopAutoSlide();
     },
 
     goPrev() {
@@ -76,6 +66,35 @@ export default {
     selectThumb(index) {
       this.activeSlide = index;
     },
+
+    startAutoSlide() {
+      this.autoSlideInterval = setInterval(() => {
+        this.goNext();
+      }, 2000);
+    },
+
+    stopAutoSlide() {
+      clearInterval(this.autoSlideInterval);
+    },
+  },
+
+  computed: {
+    prevIndex() {
+      // Calcola l'indice dell'immagine precedente
+      return this.activeSlide === 0
+        ? this.imageList.length - 1
+        : this.activeSlide - 1;
+    },
+    nextIndex() {
+      // Calcola l'indice dell'immagine successiva
+      return this.activeSlide === this.imageList.length - 1
+        ? 0
+        : this.activeSlide + 1;
+    },
+  },
+
+  beforeUnmount() {
+    this.stopAutoSlide();
   },
 };
 </script>
