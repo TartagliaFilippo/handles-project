@@ -37,6 +37,21 @@ export default {
     };
   },
 
+  computed: {
+    prevIndex() {
+      // Calcola l'indice dell'immagine precedente
+      return this.activeSlide === 0
+        ? this.imageList.length - 1
+        : this.activeSlide - 1;
+    },
+    nextIndex() {
+      // Calcola l'indice dell'immagine successiva
+      return this.activeSlide === this.imageList.length - 1
+        ? 0
+        : this.activeSlide + 1;
+    },
+  },
+
   methods: {
     getSlide(index) {
       this.activeSlide = index;
@@ -57,6 +72,10 @@ export default {
         this.activeSlide++;
       }
     },
+
+    selectThumb(index) {
+      this.activeSlide = index;
+    },
   },
 };
 </script>
@@ -76,18 +95,27 @@ export default {
           :class="{ active: index === activeSlide }"
         >
           <div class="left-preview">
-            <img :src="image.url" alt="" />
+            <img :src="imageList[prevIndex].url" alt="" />
           </div>
           <div class="main-image">
             <img :src="image.url" alt="" />
           </div>
           <div class="right-preview">
-            <img :src="image.url" alt="" />
+            <img :src="imageList[nextIndex].url" alt="" />
           </div>
         </div>
         <div class="right-button" @click="goNext">
           <font-awesome-icon :icon="['fas', 'angle-right']" />
         </div>
+      </div>
+      <div class="container-thumbs">
+        <div
+          class="thumb"
+          v-for="(thumb, index) in imageList.length"
+          :key="index"
+          :class="{ active: index === activeSlide }"
+          @click="selectThumb(index)"
+        ></div>
       </div>
     </div>
   </div>
@@ -151,6 +179,7 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
+          opacity: 0.3;
           img {
             max-width: 100%;
             max-height: 100%;
@@ -166,6 +195,23 @@ export default {
             max-width: 100%;
             max-height: 100%;
           }
+        }
+      }
+    }
+    .container-thumbs {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      .thumb {
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+        background-color: #ffff;
+        &.active {
+          opacity: 0.3;
         }
       }
     }
