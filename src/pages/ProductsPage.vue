@@ -43,11 +43,6 @@ export default {
   },
 
   methods: {
-    getSlide(index) {
-      this.activeSlide = index;
-      this.stopAutoSlide();
-    },
-
     goPrev() {
       if (this.activeSlide === 0) {
         this.activeSlide = this.imageList.length - 1;
@@ -68,6 +63,7 @@ export default {
 
     selectThumb(index) {
       this.activeSlide = index;
+      this.stopAutoSlide();
     },
 
     startAutoSlide() {
@@ -181,11 +177,11 @@ export default {
       height: 70vh;
       background-color: #584935;
       position: relative;
-      border-radius: 1rem;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
+      border-radius: 1rem;
       .left-button,
       .right-button {
         height: 100%;
@@ -195,6 +191,7 @@ export default {
         padding: 0 1rem;
         background-color: #ffff;
         opacity: 0.5;
+        cursor: pointer;
       }
       .left-button {
         left: 0;
@@ -205,8 +202,8 @@ export default {
         border-radius: 0 1rem 1rem 0;
       }
       .container-slider {
-        height: 90%;
         width: 100%;
+        height: 90%;
         display: none;
         &.active {
           display: flex;
@@ -220,8 +217,8 @@ export default {
           height: 100%;
           transform: scale(0.8);
           display: flex;
-          align-items: center;
           justify-content: center;
+          align-items: center;
           opacity: 0.3;
           img {
             max-width: 100%;
@@ -229,11 +226,12 @@ export default {
           }
         }
         .main-image {
-          height: 100%;
           width: 33%;
+          height: 100%;
           display: flex;
-          align-items: center;
           justify-content: center;
+          align-items: center;
+          cursor: pointer;
           img {
             max-width: 100%;
             max-height: 100%;
@@ -244,13 +242,13 @@ export default {
     .container-thumbs {
       display: flex;
       flex-direction: row;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       gap: 1rem;
       margin: 1rem 0;
       .thumb {
-        height: 1rem;
         width: 1rem;
+        height: 1rem;
         border-radius: 50%;
         background-color: #ffff;
         &.active {
