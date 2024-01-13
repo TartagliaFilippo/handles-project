@@ -4,6 +4,7 @@ export default {
     return {
       title: "Products",
       activeSlide: 0,
+      autoSlide: true,
       imageList: [
         {
           name: "Antique Iron",
@@ -53,6 +54,7 @@ export default {
       } else {
         this.activeSlide--;
       }
+      this.handleAutoSlide();
     },
 
     goNext() {
@@ -61,6 +63,7 @@ export default {
       } else {
         this.activeSlide++;
       }
+      this.handleAutoSlide();
     },
 
     selectThumb(index) {
@@ -68,13 +71,34 @@ export default {
     },
 
     startAutoSlide() {
-      this.autoSlideInterval = setInterval(() => {
-        this.goNext();
-      }, 2000);
+      if (this.autoSlide === true) {
+        this.stopAutoSlide();
+        this.autoSlideInterval = setInterval(() => {
+          this.goNext();
+        }, 2000);
+      }
     },
 
     stopAutoSlide() {
       clearInterval(this.autoSlideInterval);
+    },
+
+    handleAutoSlide() {
+      if (this.autoSlide === false) {
+        this.stopAutoSlide();
+      } else {
+        this.startAutoSlide();
+      }
+    },
+
+    handlePrevClick() {
+      this.goPrev();
+      this.autoSlide = false;
+    },
+
+    handleNextClick() {
+      this.goNext();
+      this.autoSlide = false;
     },
   },
 
@@ -104,7 +128,7 @@ export default {
     <div class="container">
       <h1 class="main-title">{{ title }}</h1>
       <div class="carousel-container">
-        <div class="left-button" @click="goPrev">
+        <div class="left-button" @click="handlePrevClick">
           <font-awesome-icon :icon="['fas', 'angle-left']" />
         </div>
         <div
@@ -123,14 +147,14 @@ export default {
             <img :src="imageList[nextIndex].url" alt="" />
           </div>
         </div>
-        <div class="right-button" @click="goNext">
+        <div class="right-button" @click="handleNextClick">
           <font-awesome-icon :icon="['fas', 'angle-right']" />
         </div>
       </div>
       <div class="container-thumbs">
         <div
           class="thumb"
-          v-for="(thumb, index) in imageList.length"
+          v-for="(thumb, index) in imageList"
           :key="index"
           :class="{ active: index === activeSlide }"
           @click="selectThumb(index)"
@@ -194,7 +218,7 @@ export default {
         .right-preview {
           width: 33%;
           height: 100%;
-          scale: 0.8;
+          transform: scale(0.8);
           display: flex;
           align-items: center;
           justify-content: center;
