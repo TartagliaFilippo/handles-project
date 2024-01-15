@@ -12,26 +12,60 @@ export default {
   <div class="wrapper">
     <div class="container">
       <h1 class="main-title">{{ title }}</h1>
-      <div class="location-container"></div>
+      <div class="location-container">
+        <div class="maps">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1344.9148652627227!2d11.722232599999991!3d45.74949149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4778d06945c36aed%3A0x3d1b14918eb5af0!2sLe%20Maniglie%20Di%20Tartaglia%20Stefano!5e1!3m2!1sit!2sit!4v1705347529511!5m2!1sit!2sit"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <div class="info-address">
+          <h2>Come raggiungerci?</h2>
+          <p>Ci troviamo a Bassano del Grappa in Strada Cartigliana 136/A</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .wrapper {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   .container {
     width: 70%;
     margin: 0 auto;
 
     .main-title {
-      padding: 1rem 0 5rem;
+      padding: 1rem 0 1rem;
       text-align: center;
     }
     .location-container {
-      width: 100%;
-      height: 70vh;
-      border: 1px solid white;
+      display: flex;
+      justify-content: space-between;
+      .maps {
+        width: 70%;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .info-address {
+        width: 20%;
+        height: fit-content;
+        padding: 1rem;
+        text-align: center;
+        background-color: #958d81;
+        border-radius: 1rem;
+
+        h2 {
+          margin-bottom: 1rem;
+        }
+      }
     }
   }
 }

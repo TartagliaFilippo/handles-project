@@ -96,7 +96,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
 
   .container {
     width: 70%;
