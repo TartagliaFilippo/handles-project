@@ -75,6 +75,21 @@ export default {
         ></textarea>
         <button type="submit">Invia</button>
       </form>
+      <div class="contacts">
+        <h2>Informazioni di contatto utili</h2>
+        <p><span class="bold-text">Cellulare:</span> +39 333 2846381</p>
+        <p><span class="bold-text">Telefono Fisso:</span> 0424 566024</p>
+        <p>
+          <span class="bold-text">E-mail:</span
+          ><a href="mailto:stefano@maniglietartaglia.it">
+            stefano@maniglietartaglia.it</a
+          >
+        </p>
+        <p>
+          <span class="bold-text">Codice Fiscale:</span> TRT SFN 66H18 A703P
+        </p>
+        <p><span class="bold-text">Partita Iva:</span> 02786250247</p>
+      </div>
     </div>
   </div>
 </template>
@@ -86,6 +101,9 @@ export default {
   .container {
     width: 70%;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
     .main-title {
       padding: 1rem 0;
@@ -115,6 +133,24 @@ export default {
       button {
         width: auto;
         padding: 0.5rem 1rem;
+      }
+    }
+    .contacts {
+      background-color: #958d81;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      h2 {
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 0.5rem;
+        .bold-text {
+          font-weight: bold;
+        }
+        a {
+          text-decoration: none;
+          color: black;
+        }
       }
     }
   }
