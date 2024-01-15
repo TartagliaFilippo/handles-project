@@ -19,9 +19,9 @@ export default {
       </div>
       <div class="items-navbar">
         <RouterLink :to="{ name: 'homepage' }">Home</RouterLink>
-        <RouterLink :to="{ name: 'products' }">Products</RouterLink>
-        <RouterLink :to="{ name: 'contacts' }">Contacts</RouterLink>
-        <RouterLink :to="{ name: 'location' }">Location</RouterLink>
+        <RouterLink :to="{ name: 'products' }">Cataloghi</RouterLink>
+        <RouterLink :to="{ name: 'contacts' }">Contatti</RouterLink>
+        <RouterLink :to="{ name: 'location' }">Dove siamo</RouterLink>
       </div>
     </div>
   </nav>

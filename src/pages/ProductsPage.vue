@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      title: "Products",
+      title: "I nostri Prodotti..",
       activeSlide: 0,
       autoSlide: true,
       imageList: [
@@ -169,7 +169,7 @@ export default {
     margin: 0 auto;
 
     .main-title {
-      padding: 1rem 0 5rem;
+      padding: 1rem 0 3rem;
       text-align: center;
     }
     .carousel-container {

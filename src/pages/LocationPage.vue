@@ -2,8 +2,13 @@
 export default {
   data() {
     return {
-      title: "Location",
+      isLoading: true,
     };
+  },
+  methods: {
+    onMapLoad() {
+      this.isLoading = false;
+    },
   },
 };
 </script>
@@ -11,9 +16,11 @@ export default {
 <template>
   <div class="wrapper">
     <div class="container">
-      <h1 class="main-title">{{ title }}</h1>
       <div class="location-container">
         <div class="maps">
+          <div class="loading-overlay" v-if="isLoading">
+            Caricamento in corso...
+          </div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1344.9148652627227!2d11.722232599999991!3d45.74949149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4778d06945c36aed%3A0x3d1b14918eb5af0!2sLe%20Maniglie%20Di%20Tartaglia%20Stefano!5e1!3m2!1sit!2sit!4v1705347529511!5m2!1sit!2sit"
             width="100%"
@@ -22,6 +29,7 @@ export default {
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
+            @load="onMapLoad"
           ></iframe>
         </div>
         <div class="info-address">
@@ -36,14 +44,12 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .container {
     width: 70%;
-    margin: 0 auto;
-
-    .main-title {
-      padding: 1rem 0 1rem;
-      text-align: center;
-    }
+    height: 100%;
     .location-container {
       display: flex;
       justify-content: space-between;
@@ -53,6 +59,20 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+
+        .loading-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(255, 255, 255, 0.8); /* Sfondo trasparente */
+          z-index: 10; /* Assicurati che l'overlay sia sopra l'iframe */
+        }
       }
       .info-address {
         width: 20%;
