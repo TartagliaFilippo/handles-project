@@ -34,7 +34,9 @@ export default {
         </div>
         <div class="info-address">
           <h2>Come raggiungerci?</h2>
-          <p>Ci troviamo a Bassano del Grappa in Strada Cartigliana 136/A</p>
+          <p>
+            Ci troviamo a Bassano del Grappa(VI) in Strada Cartigliana 136/A
+          </p>
         </div>
       </div>
     </div>
@@ -70,8 +72,8 @@ export default {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: rgba(255, 255, 255, 0.8); /* Sfondo trasparente */
-          z-index: 10; /* Assicurati che l'overlay sia sopra l'iframe */
+          background-color: rgba(255, 255, 255, 0.8);
+          z-index: 10;
         }
       }
       .info-address {

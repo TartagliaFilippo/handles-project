@@ -1,111 +1,117 @@
 <script>
 export default {
   data() {
-    return {
-      contents: [
-        {
-          id: "1",
-          title: "Chi Siamo",
-          overview:
-            "Siamo un'azienda artigiana a conduzione familiare con una storia di oltre 50 anni nel cuore dell'arte delle maniglie. Da padre a figlio, la nostra passione per la creazione di maniglie uniche e di alta qualità è il filo conduttore che ha intessuto la nostra storia.",
-        },
-
-        {
-          id: "2",
-          title: "La Nostra Storia",
-          overview:
-            "Tutto ebbe inizio nel 1972 quando il nostro fondatore, con il suo banco da lavoro e un talento innato per il design, iniziò a creare maniglie artigianali. Nel corso degli anni, la maestria artigiana è stata tramandata di generazione in generazione, arricchendosi di nuove tecniche e innovazioni.",
-        },
-
-        {
-          id: "3",
-          title: "La Nostra Arte",
-          overview:
-            "Ogni maniglia che produciamo è il risultato di anni di esperienza e dedizione. Utilizziamo solo i migliori materiali, lavorati con cura e maestria. La nostra gamma spazia dal classico all'avanguardia, offrendo soluzioni per tutti i gusti e stili.",
-        },
-
-        {
-          id: "4",
-          title: "L'Eccellenza Artigiana",
-          overview:
-            "Ci impegniamo per l'eccellenza in ogni dettaglio. Ogni maniglia è un'opera d'arte unica, riflettente della nostra eredità artigiana. Oltre alla qualità estetica, mettiamo un'enfasi particolare sulla funzionalità e la durata nel tempo.",
-        },
-
-        {
-          id: "5",
-          title: "La Nostra Missione",
-          overview:
-            "La nostra missione è quella di arricchire gli spazi con maniglie che non solo siano funzionali, ma che aggiungano anche un tocco di raffinatezza e stile. Siamo guidati dalla passione per il nostro mestiere e dalla soddisfazione dei nostri clienti.",
-        },
-
-        {
-          id: "6",
-          title: "Collaborazioni Personalizzate",
-          overview:
-            "Offriamo servizi di consulenza personalizzata per garantire che le vostre maniglie siano in perfetta armonia con l'ambiente circostante. Siamo pronti a collaborare con architetti, designer e privati per realizzare progetti su misura.",
-        },
-        {
-          id: "7",
-          title: "Contattaci",
-          overview:
-            "Esplora la nostra collezione e scopri come possiamo trasformare le tue porte e finestre. Se hai domande o desideri discutere progetti personalizzati, non esitare a contattarci. Siamo qui per creare maniglie straordinarie che rendano unico ogni spazio.",
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>
 
 <template>
-  <main class="wrapper-home">
-    <section class="section" v-for="content in contents" :key="content.id">
-      <div class="container">
-        <div class="container-content">
-          <h2>{{ content.title }}</h2>
-          <p>{{ content.overview }}</p>
+  <div class="wrapper">
+    <div class="container">
+      <div class="top-section clearfix">
+        <div class="image-container">
+          <img src="public/image-home/liberty-1.jpg" alt="Immagine Top" />
         </div>
+        <h1 class="main-title">
+          Benvenuti nel mondo della raffinatezza artigianale da oltre 50 anni!
+        </h1>
+        <p>
+          Benvenuti nel mondo della raffinatezza artigianale da oltre 50 anni!
+          Da oltre quattro decenni, siamo i pionieri nel settore degli accessori
+          per il mobile, specializzati nella produzione di pomoli, maniglie,
+          chiavi, bocchette e molto altro, il tutto realizzato con la nostra
+          passione e maestria in ottone.
+        </p>
+        <p>
+          Immersi nel mercato del mobile in stile e moderno, la nostra
+          esperienza di 40 anni è un testimone della nostra dedizione
+          all'eccellenza artigianale. Ogni dettaglio dei nostri prodotti è
+          plasmato con cura e attenzione, riflettendo il nostro impegno per
+          offrire accessori distintivi e di alta qualità.
+        </p>
       </div>
-    </section>
-  </main>
+      <div class="bottom-section clearfix">
+        <div class="image-container">
+          <img src="public\image-home\liberty-2.jpg" alt="Immagine Bottom" />
+        </div>
+        <p>
+          Se siete alla ricerca di soluzioni uniche che si distinguano per
+          eleganza e durabilità, siete nel posto giusto. Non esitate a
+          contattarci per ulteriori informazioni o per soddisfare le vostre
+          esigenze personalizzate. Siamo pronti a trasformare la vostra visione
+          in realtà.
+        </p>
+        <p>
+          Unisciti alla nostra famiglia di clienti soddisfatti e scopri il tocco
+          distintivo dei nostri prodotti artigianali. Ci auguriamo di darvi il
+          benvenuto nel mondo dell'eleganza senza tempo.
+        </p>
+        <p class="signature">Stefano Tartaglia</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.wrapper-home {
-  color: #c8c7bc;
-}
-.section {
-  height: 200px;
-  display: flex;
-  align-items: center;
+.wrapper {
+  min-height: 100vh;
 
   .container {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    .container-content {
-      width: 60%;
-      display: flex;
-      flex-direction: column;
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .top-section {
+    }
+
+    .top-section,
+    .bottom-section {
+      position: relative;
+      p {
+        font-size: 1.5rem;
+        color: #c9c9c9;
+      }
+
+      .image-container {
+        border-radius: 2rem;
+        overflow: hidden;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .top-section {
+      margin: 3rem 0 2rem;
+      .image-container {
+        float: left;
+        margin-right: 1rem;
+      }
+    }
+
+    .bottom-section {
+      .image-container {
+        float: right;
+        margin-left: 1rem;
+      }
+
+      .signature {
+        font-family: "Dancing Script", cursive;
+        margin-top: 3rem;
+      }
+    }
+
+    .main-title {
+      padding: 1rem 0 2rem;
+      text-align: center;
     }
   }
-}
-
-.section:nth-child(odd) {
-  background-color: #4a4238;
-}
-
-.section:nth-child(even) {
-  background-color: #584935;
-}
-
-.container-content:nth-child(odd) {
-  justify-content: flex-start;
-}
-
-.container-content:nth-child(even) {
-  justify-content: flex-end;
 }
 </style>
