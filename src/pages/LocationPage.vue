@@ -45,16 +45,22 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 5rem;
+  @media screen and (max-width: 765px) {
+    padding-top: 2rem;
+  }
   .container {
-    width: 70%;
-    height: 100%;
     .location-container {
       display: flex;
       justify-content: space-between;
+      gap: 2rem;
+      @media screen and (max-width: 765px) {
+        flex-direction: column;
+        gap: 2rem;
+      }
       .maps {
         width: 70%;
         height: 70vh;
@@ -62,6 +68,9 @@ export default {
         align-items: center;
         justify-content: center;
         position: relative;
+        @media screen and (max-width: 765px) {
+          width: 100%;
+        }
 
         .loading-overlay {
           position: absolute;
@@ -77,12 +86,15 @@ export default {
         }
       }
       .info-address {
-        width: 20%;
+        width: 30%;
         height: fit-content;
         padding: 1rem;
         text-align: center;
         background-color: #958d81;
         border-radius: 1rem;
+        @media screen and (max-width: 765px) {
+          width: 100%;
+        }
 
         h2 {
           margin-bottom: 1rem;

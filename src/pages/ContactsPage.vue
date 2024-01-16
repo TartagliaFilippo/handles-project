@@ -96,7 +96,8 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
+  padding-bottom: 1rem;
 
   .container {
     width: 70%;
@@ -104,7 +105,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 2rem;
 
+    @media screen and (max-width: 765px) {
+      flex-direction: column;
+    }
     .main-title {
       padding: 1rem 0;
       text-align: center;
@@ -128,6 +133,10 @@ export default {
         font-size: 1.5rem;
         border-radius: 0.5rem;
         padding: 1rem;
+
+        @media screen and (max-width: 765px) {
+          width: 100%;
+        }
       }
 
       button {

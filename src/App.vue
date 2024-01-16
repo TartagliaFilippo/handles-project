@@ -28,7 +28,6 @@ export default {
 }
 
 .wrapper-app {
-  padding-top: 80px;
   background-color: #4a4238;
 }
 </style>

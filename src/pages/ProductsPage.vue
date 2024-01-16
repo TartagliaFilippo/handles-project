@@ -200,11 +200,8 @@ export default {
   min-height: 100vh;
 
   .container {
-    width: 70%;
-    margin: 0 auto;
-
     .main-title {
-      padding: 1rem 0 2rem;
+      padding: 2rem 0;
       text-align: center;
     }
 
@@ -213,7 +210,7 @@ export default {
     }
     .carousel-container {
       width: 100%;
-      height: 70vh;
+      height: 70%;
       background-color: #584935;
       position: relative;
       display: flex;
@@ -251,6 +248,10 @@ export default {
           flex-direction: row;
           justify-content: center;
           align-items: center;
+
+          @media screen and (max-width: 765px) {
+            height: 50vh;
+          }
         }
         .left-preview,
         .right-preview {
@@ -261,6 +262,10 @@ export default {
           justify-content: center;
           align-items: center;
           opacity: 0.3;
+
+          @media screen and (max-width: 765px) {
+            display: none;
+          }
           img {
             max-width: 100%;
             max-height: 100%;
@@ -268,13 +273,16 @@ export default {
         }
         .main-image {
           width: 33%;
-          height: 100%;
+          height: 90%;
           display: flex;
           justify-content: center;
           align-items: center;
           cursor: pointer;
+          @media screen and (max-width: 765px) {
+            width: 90%;
+          }
           img {
-            max-width: 100%;
+            max-width: 90%;
             max-height: 100%;
           }
         }
@@ -292,6 +300,7 @@ export default {
         height: 1rem;
         border-radius: 50%;
         background-color: #ffff;
+        cursor: pointer;
         &.active {
           opacity: 0.3;
         }

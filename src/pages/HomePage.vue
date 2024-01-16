@@ -58,23 +58,22 @@ export default {
   min-height: 100vh;
 
   .container {
-    width: 80%;
-    margin: 0 auto;
-
     .clearfix::after {
       content: "";
       display: block;
       clear: both;
     }
 
-    .top-section {
-    }
-
     .top-section,
     .bottom-section {
       position: relative;
+      @media screen and (max-width: 765px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       p {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: #c9c9c9;
       }
 
@@ -89,7 +88,7 @@ export default {
     }
 
     .top-section {
-      margin: 3rem 0 2rem;
+      padding: 3rem 0 1rem;
       .image-container {
         float: left;
         margin-right: 1rem;
@@ -97,9 +96,13 @@ export default {
     }
 
     .bottom-section {
+      padding-bottom: 2rem;
       .image-container {
         float: right;
         margin-left: 1rem;
+        @media screen and (max-width: 765px) {
+          margin-bottom: 2rem;
+        }
       }
 
       .signature {
