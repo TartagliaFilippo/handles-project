@@ -10,9 +10,13 @@ import * as Bootstrap from "bootstrap";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faAngleLeft, faAngleRight);
+library.add(faAngleLeft, faAngleRight, faBars);
 
 import App from "./App.vue";
 

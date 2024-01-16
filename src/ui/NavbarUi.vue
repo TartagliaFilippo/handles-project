@@ -10,66 +10,67 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar-main">
-    <div class="container">
-      <div class="logo">
-        <RouterLink :to="{ name: 'homepage' }"
-          >Le Maniglie di Tartaglia Stefano</RouterLink
-        >
-      </div>
-      <div class="items-navbar">
-        <RouterLink :to="{ name: 'homepage' }">Home</RouterLink>
-        <RouterLink :to="{ name: 'products' }">Cataloghi</RouterLink>
-        <RouterLink :to="{ name: 'contacts' }">Contatti</RouterLink>
-        <RouterLink :to="{ name: 'location' }">Dove siamo</RouterLink>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <RouterLink class="navbar-brand" :to="{ name: 'homepage' }"
+        >Le Maniglie di Tartaglia Stefano</RouterLink
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <font-awesome-icon :icon="['fas', 'bars']" style="color: #c9c9c9" />
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarNavDropdown"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <RouterLink class="nav-link" :to="{ name: 'homepage' }"
+              >Home</RouterLink
+            >
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" :to="{ name: 'products' }"
+              >Cataloghi</RouterLink
+            >
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" :to="{ name: 'contacts' }"
+              >Contatti</RouterLink
+            >
+          </li>
+          <li class="nav-item">
+            <RouterLink class="nav-link" :to="{ name: 'location' }"
+              >Dove siamo</RouterLink
+            >
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
 </template>
 
 <style lang="scss">
-.navbar-main {
-  background-color: #36312a;
-  color: #c8c7bc;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  display: flex;
-  align-items: center;
+.bg-body-tertiary {
+  background-color: #5a4832 !important;
 
-  .container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  .navbar-brand {
+    color: #c9c9c9;
+  }
 
-    .logo {
-      width: 30%;
-      font-size: 27px;
+  .nav-link {
+    color: #c9c9c9;
+  }
 
-      a {
-        text-decoration: none;
-        color: #c8c7bc;
-      }
-    }
-
-    .items-navbar {
-      width: 50%;
-      display: flex;
-      justify-content: flex-end;
-      gap: 40px;
-      font-size: 25px;
-
-      a {
-        text-decoration: none;
-        color: #c8c7bc;
-      }
-    }
+  .navbar-toggler {
+    border-color: #c9c9c9;
   }
 }
 </style>
