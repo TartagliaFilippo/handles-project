@@ -78,8 +78,6 @@ export default {
       }
 
       .image-container {
-        border-radius: 2rem;
-        overflow: hidden;
         img {
           max-width: 100%;
           height: auto;
